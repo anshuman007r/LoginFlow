@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
     "base-64": "^1.0.0",
     "jetify": "^1.0.2",
     "js-tokens": "^6.0.0",
