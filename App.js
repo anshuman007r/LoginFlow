@@ -11,16 +11,6 @@ export default class App extends Component {
         <Provider store={store}>
           <AppContainer 
             ref={nav => { this.navigator = nav; }}
-            onNavigationStateChange={(prevState, currentState, action) => {
-              // const currentScreen = APP_UTIL.getActiveRouteName(currentState);
-              // const prevScreen = APP_UTIL.getActiveRouteName(prevState);
-              // console.log("State test", prevScreen, currentScreen)
-              // if (prevScreen !== currentScreen) {
-              //   const screen = currentScreen
-              //   console.log('Current Screen', screen)
-              //   store.dispatch(setScreen(screen))
-              // }
-            }}
           />
         </Provider>
 
