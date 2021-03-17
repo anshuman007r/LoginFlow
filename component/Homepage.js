@@ -39,7 +39,7 @@ class Homepage extends Component {
                             </View>
                         </View>
                         <View style={styles.welcome_container}>
-                            <Text style={styles.homepage_welcome_text }>Hi {this.state.profile.email}, welcome!</Text>
+                            <Text style={styles.homepage_welcome_text }>Hi {this.state.profile.name}, welcome!</Text>
                         </View>
                     </Content>
             </Container>

@@ -7,6 +7,7 @@ import styles from '../../style';
 import { connect } from 'react-redux'
 import { logged } from '../../storage/action'
 import { StackActions, NavigationActions } from 'react-navigation';
+import { callAPI } from '../../config/Utility'
 
 const onlogOn = StackActions.reset({
     index: 0,
@@ -101,17 +102,18 @@ class Login extends Component {
 
     callLoginApi = () => {
         const { password, email } = this.state
-        if( email == 'abc@xyz.com' && password == 'welcome@123'){
-            let profile={}
-            profile.email = 'abc@xyz.com'
-            profile.password = 'welcome@123'
-            this.props.logged(profile)
-            this.props.navigation.dispatch(onlogOn)
-        }else if( email != 'abc@xyz.com'){
-            Alert.alert('',"email doesn't exist")
-        }else{
-            Alert.alert('',"the password enter is wrong, please enter a valid password")
-        }
+        let request = {}
+        request.password = password
+        request.email = email
+        callAPI("login",request).then((res)=>{
+            console.log(res)
+            if(res){
+                this.props.logged(res)
+                this.props.navigation.dispatch(onlogOn)
+            }
+        }).catch((error)=>{
+            Alert.alert('',error.message)
+        })
     }
 
     onFocusPass = () => {
@@ -232,9 +234,9 @@ class Login extends Component {
                                             </View> : <View></View>
                                         }
                                     </View>
-                                    {/* <View style={styles.forgot_pwd}>
+                                    <View style={styles.forgot_pwd}>
                                             <Text style={styles.forgot_pw_text} onPress={() => this.props.navigation.navigate('SignUp')}>Don't have account ? create one</Text>
-                                    </View> */}
+                                    </View>
                                 </View>
                             </View>
                         </View>

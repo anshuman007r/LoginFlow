@@ -95,7 +95,7 @@ export default StyleSheet.create({
         fontFamily: "WorkSans-Medium", fontSize: 11, color: '#FF4500', fontFamily: 'WorkSans-Regular'
     },
     privacy_text_term: {
-        alignItems: 'center', justifyContent :'center', height :60,
+        alignItems: 'center', justifyContent :'center', height :80,
     },
     button_disable: {
         width: '90%', height: 48, marginTop: 0, borderRadius: 5, alignItems: 'center', justifyContent: 'center'
